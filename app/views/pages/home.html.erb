@@ -1,6 +1,11 @@
 <div class="container">
   <div id="restarants"
     data-controller="api">
-
+    <%# Search Form %>
+    <%= form_with  do |form| %>
+      <%= form.text_field :query,
+                          placeholder: "Postcode" %>
+      <%= form.submit "Search" %>
+    <% end %>
   </div>
 </div>
