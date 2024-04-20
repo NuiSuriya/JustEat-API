@@ -33,12 +33,12 @@ export default class extends Controller {
           restaurant_list += `<div class="d-flex">
                                 <img  src='${logo}' alt="logo" class="logo me-4">`
           restaurant_list += `<h3 class="align-self-center">${name}</h3></div>`
-          restaurant_list += `<p class="mt-3 icon"><i class='fa-solid fa-star'></i> ${rating}</p>`
-          restaurant_list += `<p><span class="icon pe-2"><i class="fa-regular fa-location-dot"></i></span> ${address}, ${city}</p>`
-          restaurant_list += "<p>Cuisines: <ul>"
+          restaurant_list += `<p class="mt-3 icon ms-3 mt-4"><i class='fa-solid fa-star'></i> ${rating}</p>`
+          restaurant_list += `<p><span class="icon pe-2 ms-3"><i class="fa-regular fa-location-dot"></i></span> ${address}, ${city}</p>`
+          restaurant_list += "<ul>"
           cuisines.forEach((cuisine) => {
             const cuisineName = cuisine.name;
-            restaurant_list += `<li>${cuisineName}</li>`
+            restaurant_list += `<li><span class='icon-dark me-2'><i class="fa-solid fa-bowl-food"></i></span>${cuisineName}</li>`
           })
           restaurant_list += "</ul></p>"
 
