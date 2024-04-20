@@ -1,16 +1,22 @@
 <div class="container">
   <div id="restarants"
     data-controller="api">
+
     <%# Search Form %>
-    <%= form_with url: root_path,
-      method: :get, html: {data: {api_target: "form"}} do |form| %>
-      <%= form.text_field :query,
-                          placeholder: "Postcode",
-                          value: params[:query],
-                          data: {api_target: "input"}
-                          %>
-      <%= form.submit "Search", data: {action: "api#search"} %>
-    <% end %>
+    <div class="text-center mt-4">
+      <%= form_with url: root_path,
+        method: :get, html: { data: { api_target: "form" }} do |form| %>
+        <%= form.text_field :query,
+                            id: "search-box",
+                            placeholder: "Add your postcode here...",
+                            value: params[:query],
+                            data: { api_target: "input" }
+                            %>
+        <%= form.submit "Search",
+        id: "submit-btn",
+        data: { action: "api#search" } %>
+      <% end %>
+    </div>
 
     <div class="container mt-5">
       <%# Search results %>

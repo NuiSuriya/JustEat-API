@@ -25,10 +25,14 @@ export default class extends Controller {
           const rating = restaurant.rating.starRating
           const city = restaurant.address.city
           const address = restaurant.address.firstLine
+          const logo = restaurant.logoUrl
+          console.log(logo);
 
           restaurant_list += `<div class='col-4'>
                                   <div class='card mb-3 py-3 px-3 resto-card'>`
-          restaurant_list += `<h3 class="text-center">Name: ${name}</h3>`
+          restaurant_list += `<div class="d-flex">
+                                <img  src='${logo}' alt="logo" class="logo me-4">`
+          restaurant_list += `<h3>${name}</h3></div>`
           restaurant_list += `<p>Rating: ${rating}</p>`
           restaurant_list += "<p>Cuisines: <ul>"
           cuisines.forEach((cuisine) => {

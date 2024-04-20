@@ -1,0 +1,27 @@
+#submit-btn {
+  border: none;
+  border-radius: 3px;
+  background-color: $orange;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  font-weight: bolder;
+
+  &:hover {
+    background-color: #153448;
+    color: white;
+  }
+}
+
+#search-box{
+  background: white;
+  border: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+
+  margin-right: 0;
+}
