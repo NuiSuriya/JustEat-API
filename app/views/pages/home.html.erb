@@ -2,10 +2,16 @@
   <div id="restarants"
     data-controller="api">
     <%# Search Form %>
-    <%= form_with  do |form| %>
+    <%= form_with url: root_path,
+      method: :get, html: {data: {api_target: "form"}} do |form| %>
       <%= form.text_field :query,
                           placeholder: "Postcode" %>
-      <%= form.submit "Search" %>
+      <%= form.submit "Search", data: {action: "api#search"} %>
     <% end %>
+
+    <div data-api-target="list">
+      <%# Search results %>
+
+    </div>
   </div>
 </div>
