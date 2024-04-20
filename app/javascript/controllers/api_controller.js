@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="api"
 export default class extends Controller {
-  static targets = ["form", "list"]
+  static targets = ["form", "input", "list"]
 
   connect() {
     // console.log("Connect API controller");
@@ -11,7 +11,8 @@ export default class extends Controller {
 
   search(event) {
     event.preventDefault();
-    const url = "https://uk.api.just-eat.io/discovery/uk/restaurants/enriched/bypostcode/CB74DL"
+    const postCode = this.inputTarget.value
+    const url = `https://uk.api.just-eat.io/discovery/uk/restaurants/enriched/bypostcode/${postCode}`
     const proxyUrl = "https://cors-anywhere.herokuapp.com/" + url; // Using cors-anywhere as a proxy
     fetch(proxyUrl)
       .then(response => response.json())
@@ -26,15 +27,15 @@ export default class extends Controller {
           const address = restaurant.address.firstLine
 
           restaurant_list += `<div class='col-4'>
-                                  <div class='card mb-3 p-3 pt-4 resto-card'>`
-          restaurant_list += `<h3>Name: ${name}</h3>`
+                                  <div class='card mb-3 py-3 px-3 resto-card'>`
+          restaurant_list += `<h3 class="text-center">Name: ${name}</h3>`
+          restaurant_list += `<p>Rating: ${rating}</p>`
           restaurant_list += "<p>Cuisines: <ul>"
           cuisines.forEach((cuisine) => {
             const cuisineName = cuisine.name;
             restaurant_list += `<li>${cuisineName}</li>`
           })
           restaurant_list += "</ul></p>"
-          restaurant_list += `<p>Rating: ${rating}</p>`
           restaurant_list += `<p>Address: ${address}, ${city}</p>`
 
 
