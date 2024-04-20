@@ -9,7 +9,14 @@ export default class extends Controller {
   }
 
   search() {
-    console.log("searching");
+    const url = "https://uk.api.just-eat.io/discovery/uk/restaurants/enriched/bypostcode/CB74DL"
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/" + url; // Using cors-anywhere as a proxy
+
+    fetch(proxyUrl)
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+      })
   }
 
 }
