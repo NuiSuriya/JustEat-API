@@ -1,15 +1,6 @@
 class PagesController < ApplicationController
   def home
-    data = fetch_api["restaurants"].first(10)
-
-    data.each do |restaurant|
-      @name = restaurant["name"]
-      @cuisines = restaurant["cuisines"]
-      @rating = restaurant["rating"]["starRating"]
-      @city = restaurant["address"]["city"]
-      @address = restaurant["address"]["firstLine"]
-      @logo = restaurant["logoUrl"]
-    end
+    @restaurants = fetch_api["restaurants"].first(10) unless fetch_api["restaurants"].nil?
   end
 
   private
