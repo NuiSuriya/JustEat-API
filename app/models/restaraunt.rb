@@ -1,0 +1,2 @@
+class Restaraunt < ApplicationRecord
+end

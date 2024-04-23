@@ -13,8 +13,8 @@ export default class extends Controller {
     event.preventDefault();
     const postCode = this.inputTarget.value
     const url = `https://uk.api.just-eat.io/discovery/uk/restaurants/enriched/bypostcode/${postCode}`
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/" + url; // Using cors-anywhere as a proxy
-    fetch(proxyUrl)
+    // const proxyUrl = "https://cors-anywhere.herokuapp.com/" + url; // Using cors-anywhere as a proxy
+    fetch(url)
       .then(response => response.json())
       .then((data) => {
         console.log(data);
@@ -47,7 +47,7 @@ export default class extends Controller {
         restaurantHtml += `<li><span class='icon-dark me-2'><i class="fa-solid fa-bowl-food"></i></span>${cuisineName}</li>`;
       });
       restaurantHtml += "</ul></p>";
-      
+
       return restaurantHtml += `</div></div>`;
     }
   }
