@@ -1,0 +1,2 @@
+class Restarant < ApplicationRecord
+end

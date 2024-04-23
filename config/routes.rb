@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
 
   # Defines the root path route ("/")
+  resources :restarants, only: [:index]
 end

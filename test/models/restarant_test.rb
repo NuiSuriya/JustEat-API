@@ -1,6 +1,6 @@
 require "test_helper"
 
-class RestarauntTest < ActiveSupport::TestCase
+class RestarantTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

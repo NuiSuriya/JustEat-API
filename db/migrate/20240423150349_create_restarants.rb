@@ -1,6 +1,6 @@
-class CreateRestaraunts < ActiveRecord::Migration[7.1]
+class CreateRestarants < ActiveRecord::Migration[7.1]
   def change
-    create_table :restaraunts do |t|
+    create_table :restarants do |t|
       t.string :name
       t.float :rating
       t.text :address
