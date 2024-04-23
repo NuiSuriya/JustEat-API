@@ -29,6 +29,7 @@ Before running the application, ensure you have the following software installed
 
 ## Assumptions and Clarifications
 - During development, I encountered an issue with accessing an API from Stimulus, a JavaScript framework used in Ruby on Rails, on `http://localhost:3000`. The browser threw an error about access permissions, which did not occur when I accessed the same API using open-uri in Ruby. After investigation, I discovered that this issue was caused by security restrictions known as CORS (Cross-Origin Resource Sharing) implemented by the browser. To bypass this restriction and allow my application to access the API, I chose to use a proxy server as an intermediary. By routing my API requests through the proxy server, I could avoid the CORS restrictions and successfully retrieve the data. While resolving this issue, I found the concept of CORS and its implications on web development to be interesting and worth exploring further.
+- In terms of rating, I wasn't sure which number I should display because when I explored the API, I found that it contains two pieces of data from "rating": "count" and "starRating." However, I chose to use "starRating" because it provides more user-friendly information compared to the "count"."
 
 
 ## Potential Improvements
