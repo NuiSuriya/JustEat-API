@@ -77,4 +77,4 @@ end
 
 gem 'rack-cors'
 gem 'json'
-gem 'open-uri'
+gem 'rest-client'

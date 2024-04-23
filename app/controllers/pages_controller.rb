@@ -1,15 +1,18 @@
 class PagesController < ApplicationController
   def home
-    @end_point = fetch_api
+    @data = fetch_api
   end
 
+  # private
+
   def fetch_api
-    postcode = params[:query]
-    end_point = "https://uk.api.just-eat.io/discovery/uk/restaurants/enriched/bypostcode/#{postcode}"
-
-    # @end_point
-    # file = URI.open(end_point).read
-    # doc = JSON.parse(file)
-
+    if params[:query].present?
+      postcode = params[:query].gsub(/\s+/, "")
+      end_point = "https://uk.api.just-eat.io/discovery/uk/restaurants/enriched/bypostcode/#{postcode}"
+      response = RestClient.get(end_point)
+      JSON.parse(response.body)
+    else
+      render :home
+    end
   end
 end
