@@ -76,3 +76,5 @@ group :test do
 end
 
 gem 'rack-cors'
+gem 'json'
+gem 'open-uri'

@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   def home
-    # Restaraunt.all
-    # raise
+
+  end
+
+  def fetch_api
+
   end
 end
