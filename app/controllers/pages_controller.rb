@@ -1,9 +1,18 @@
 class PagesController < ApplicationController
   def home
-    @data = fetch_api
+    data = fetch_api["restaurants"].first(10)
+
+    data.each do |restaurant|
+      @name = restaurant["name"]
+      @cuisines = restaurant["cuisines"]
+      @rating = restaurant["rating"]["starRating"]
+      @city = restaurant["address"]["city"]
+      @address = restaurant["address"]["firstLine"]
+      @logo = restaurant["logoUrl"]
+    end
   end
 
-  # private
+  private
 
   def fetch_api
     if params[:query].present?
