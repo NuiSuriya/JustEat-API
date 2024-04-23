@@ -29,15 +29,14 @@ Before running the application, ensure you have the following software installed
 
 ## Assumptions and Clarifications
 - During development, I encountered an issue with accessing an API from Stimulus, a JavaScript framework used in Ruby on Rails, on `http://localhost:3000`. The browser threw an error about access permissions, which did not occur when I accessed the same API using open-uri in Ruby. After investigation, I discovered that this issue was caused by security restrictions known as CORS (Cross-Origin Resource Sharing) implemented by the browser. To bypass this restriction and allow my application to access the API, I chose to use a proxy server as an intermediary. By routing my API requests through the proxy server, I could avoid the CORS restrictions and successfully retrieve the data. While resolving this issue, I found the concept of CORS and its implications on web development to be interesting and worth exploring further.
+- Later, I learned that https://cors-anywhere.herokuapp.com/, which is a temporary solution for CORS issues, only suits for demos and provides limited service time. Therefore, I decided to change my solution from fetching the API from JavaScript (front-end) to Rails (back-end) to permanently resolve the issue.
 - In terms of rating, I wasn't sure which number I should display because when I explored the API, I found that it contains two pieces of data from "rating": "count" and "starRating." However, I chose to use "starRating" because it provides more user-friendly information compared to the "count"."
-
 
 ## Potential Improvements
 - Implement a Model to store data in the database, allowing for better organization and management of restaurant information.
 - Develop a Show Page to display additional data for each restaurant, providing users with more detailed information.
-- Improve the safer and better solution to handle the security restriction when API fetching
 - Implement error handling for cases where the API request fails or returns unexpected data.
 - Add pagination functionality for cases where there are a large number of results from the API.
-- Enhance the user interface with styling and additional features for better usability and aesthetics.
-
+- Enhance the user interface with styling and additional features for better usability and appearance.
+- Implement responsive design.
 
