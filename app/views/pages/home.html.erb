@@ -4,23 +4,52 @@
 
     <%# Search Form %>
     <div class="text-center mt-4">
-      <%= form_with url: root_path,
-        method: :get, html: { data: { api_target: "form" }} do |form| %>
-        <%= form.text_field :query,
-                            id: "search-box",
-                            placeholder: "Add your postcode here...",
-                            value: params[:query],
-                            data: { api_target: "input" }
-                            %>
-        <%= form.submit "Search",
-        id: "submit-btn",
-        data: { action: "api#search" } %>
-      <% end %>
+    <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            id: "search-box",
+            placeholder: "Add your postcode here..."
+        %>
+      <%= submit_tag "Search", id: "submit-btn" %>
+    <% end %>
     </div>
 
     <div class="container mt-5">
       <%# Search results %>
-      <div class="row" data-api-target="list">
+      <div class="row">
+        <% if  @restaurants%>
+          <% @restaurants.each do |restaurant| %>
+            <div class="col-4">
+              <div class="card mb-3 py-3 px-3 resto-card">
+                <div class="d-flex">
+                  <%= image_tag restaurant["logoUrl"], alt: "logo" , class: "logo me-4"%>
+                  <h3 class="align-self-center"><%= restaurant["name"] %></h3>
+                </div>
+                <p class="mt-3 icon ms-3 mt-4">
+                  <i class='fa-solid fa-star'></i> <%= restaurant["rating"]["starRating"] %>
+                </p>
+                <p>
+                  <span class="icon pe-2 ms-3"><i class="fa-regular fa-location-dot"></i></span>
+                  <%= restaurant["address"]["firstLine"] %>, <%= restaurant ["address"]["city"] %>
+                </p>
+                <ul>
+                  <% cuisines = restaurant["cuisines"] %>
+                  <% cuisines.each do |cuisine| %>
+                    <li>
+                      <span class='icon-dark me-2'><i class="fa-solid fa-bowl-food"></i></span> <%= cuisine["name"] %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+
+
+
+
+
 
       </div>
     </div>
